@@ -1,15 +1,15 @@
 from src.data.make_dataset import load_and_preprocess_data
-from src.features.build_features import train_test_split
+from src.features.build_features import train_test_splitter
 from src.models.train_model import train_linear_regression, train_decision_tree_regressor, train_random_forest_regressor
 from src.models.predict_model import evaluate_model
 from src.visualization.visualize import plot_tree
 if __name__ == "__main__":
     # Load and preprocess the data
-    data_path = "Productionalize_Regression_Models/data/raw/final.csv"
+    data_path = "data/raw/final.csv"
     df = load_and_preprocess_data(data_path)
 
     # Split the dataset into train test
-    X_train, X_test, y_train, y_test = train_test_split(df)
+    X_train, X_test, y_train, y_test = train_test_splitter(df)
     
     #Train the Linear regression model
     lrmodel = train_linear_regression(X_train, y_train)
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     print('Decision Tree Regressor Test error is', dtr_test_mae)
     
     #Plot the decision tree
-    plot_tree(dtr_model, dtr_model.feature_names_in_, save_path='reports/figures/decision_tree.png')
+    plot_tree(dtr_model, dtr_model.feature_names_in_, save_path='reports/figures/tree1.png')
     
     #Train the Random Forest Regressor
     rfr_model = train_random_forest_regressor(X_train, y_train)
@@ -43,5 +43,4 @@ if __name__ == "__main__":
     print('Random Forest Regressor Test error is', rfr_test_mae)
     
     #Plot the Random Forest Regressor
-    plot_tree(rfr_model.estimators_[2], dtr_model.feature_names_in_, save_path='reports/figures/decision_tree.png')
-    
+    plot_tree(rfr_model.estimators_[2], dtr_model.feature_names_in_, save_path='reports/figures/tree2.png')

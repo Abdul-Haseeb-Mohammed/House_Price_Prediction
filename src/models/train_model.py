@@ -16,7 +16,7 @@ def train_linear_regression(X_train, y_train):
     return lrmodel
 
 def train_decision_tree_regressor(X_train, y_train):
-    dtr_model = DecisionTreeRegressor(max_depth=3, max_features=10, random_state=567).fit(X_train,y_train)
+    dtr_model = DecisionTreeRegressor(max_depth=5, max_features=12, random_state=567).fit(X_train,y_train)
     
     # Save the trained model
     with open('models/decision_tree_regressor.pkl', 'wb') as f:
@@ -25,7 +25,7 @@ def train_decision_tree_regressor(X_train, y_train):
     return dtr_model
 
 def train_random_forest_regressor(X_train, y_train):
-    rf_model = RandomForestRegressor(n_estimators=200, criterion='absolute_error').fit(X_train,y_train)
+    rf_model = RandomForestRegressor(n_estimators=300, criterion='absolute_error', max_depth=5, max_features=12).fit(X_train,y_train)
     
     # Save the trained model
     with open('models/random_forest_regressor.pkl', 'wb') as f:

@@ -1,7 +1,7 @@
 # import module
 from sklearn.model_selection import train_test_split
 
-def train_test_split(dataset):
+def train_test_splitter(dataset):
     # seperate input features in x
     x = dataset.drop('price', axis=1)
 
