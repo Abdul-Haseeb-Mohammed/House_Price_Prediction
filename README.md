@@ -1,7 +1,7 @@
 House Price Prediction using Regression Models
 =================================================
 
-Developing code to run linear regression model in production environment
+Developing code to run regression models in production environment for house price prediction
 
 Project Organization
 ------------
